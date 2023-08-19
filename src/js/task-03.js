@@ -12,3 +12,25 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const gallery = document.querySelector('.gallery')
+gallery.style.display = "flex";
+gallery.style.gap = "60px";
+gallery.style.listStyle = "none";
+gallery.style.justifyContent = "center"
+
+function createElements(image) {
+  return image.map(
+    ({ url, alt }) =>
+      `<li><img src="${url}" alt="${alt}" width="400"></img></li>`
+  ).join(" ");
+}
+
+gallery.insertAdjacentHTML("afterbegin", createElements(images))
+
+/*
+Use an array of objects images to create <img> elements nested in <li>. Use template strings 
+and the insertAdjacentHTML() method to create markup.
+All gallery items must be added to DOM in one insert operation.
+Add at least some gallery design with flexboxes or grids using CSS classes.
+*/

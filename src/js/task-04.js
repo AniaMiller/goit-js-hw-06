@@ -1,19 +1,20 @@
-const valuePage = document.querySelector("#value");
-const buttonValueDown = document.querySelector('[data-action="decrement"]');
-const buttonValueUp = document.querySelector('[data-action="increment"]');
-let counterValue = 0;
-function updateCounterValue(value) {
-    counterValue = value;
-    valuePage.textContent = counterValue;
-}
-function valueDown() {
-    newValue = counterValue + 1;
-    updateCounterValue(newValue);
-}
-function valueUP() {
-    newValue = counterValue - 1;
-    updateCounterValue(newValue);
-}
-buttonValueDown.addEventListener("click", valueUP);
-buttonValueUp.addEventListener("click", valueDown);
-updateCounterValue(counterValue);
+let counterValue = 0
+let span = document.querySelector('#value')
+let incrementButton = document.querySelector("[data-action='increment']")
+let decrementButton = document.querySelector("[data-action='decrement']")
+
+incrementButton.addEventListener('click', function() {
+    span.textContent = parseInt(counterValue+=1)
+}, false)
+
+decrementButton.addEventListener('click', function () {
+    span.textContent = parseInt(counterValue-=1)
+}, false)
+
+
+/*
+- Create a variable, counterValue, that will store the current counter value and initialize it with 0.
+- Add listeners for clicks on the buttons; inside them, increase or decrease the value of the counter.
+- Update the interface with the new value of the variable counterValue.
+
+*/
